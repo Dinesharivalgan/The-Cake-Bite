@@ -17,8 +17,8 @@ const contactCards = [
   {
     icon: '✉️',
     label: 'Email Us',
-    value: 'thecakebite2716@gmail.com',
-    href: 'mailto:thecakebite2716@gmail.com',
+    value: 'thecakebite1627@gmail.com',
+    href: 'mailto:thecakebite1627@gmail.com',
   },
   {
     icon: '📸',
@@ -175,7 +175,7 @@ export default function Contact() {
               { day: 'Branch 2', time: 'No.30, Panakal Street, KAVERIPATTINAM - 635112' },
               { day: 'Dharmapuri', time: '84898 47578 / 63816 65877' },
               { day: 'Kaveripattinam', time: '96260 33182 / 77087 92435' },
-              { day: 'Email', time: 'thecakebite2716@gmail.com' },
+              { day: 'Email', time: 'thecakebite1627@gmail.com' },
             ].map(({ day, time }) => (
               <div key={day} className="hours-row">
                 <span className="hours-day">{day}</span>
