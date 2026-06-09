@@ -21,7 +21,7 @@ import chocoOreo          from '../assets/Choco Oreo.jpg'
 // import pinapple           from '../assets/pinaple cake.jpg'
 // import naturalFruit       from '../assets/Natural Fruit Forest.jpg'
 // import rasamalai          from '../assets/Rasamalai blast.jpg'
-import whiteforest        from '../assets/white forest.jpg'
+// import whiteforest        from '../assets/white forest.jpg'
 
 /* ──────────────────────────────────────────
    CAKE CARDS DATA
