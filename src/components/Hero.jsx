@@ -1,5 +1,5 @@
 // components/Hero.jsx
-import { useEffect, useRef } from 'react'
+import { useEffect} from 'react'
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { FiShoppingBag, FiChevronDown, FiStar, FiTruck, FiAward } from 'react-icons/fi'
 import heroCake from '../assets/hero-main.jpg'

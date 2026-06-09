@@ -22,7 +22,7 @@ import pinapple from '../assets/pinaple cake.jpg'
 import naturalFruit from '../assets/Natural Fruit Forest.jpg'
 import rasamalai from '../assets/Rasamalai blast.jpg'
 import whiteforest from '../assets/white forest.jpg'
-import { label } from 'framer-motion/client'
+
 const items = [
   { img: blackForest, label: 'Black Forest Cake', size: 'tall', cat: 'Classic' },
   { img: redVelvet, label: 'Red Velvet Cake', size: 'short', cat: 'Premium' },
