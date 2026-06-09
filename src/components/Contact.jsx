@@ -5,7 +5,7 @@ const contactCards = [
   {
     icon: '📞',
     label: 'Dharmapuri',
-    value: '+91 84898 47578',
+    value: '+91 8072411032',
     href: 'tel:+916381665877',
   },
   {
@@ -32,7 +32,7 @@ const branchDetails = [
   {
     name: 'Dharmapuri Branch',
     address: 'Krishnagiri to Dharmapuri Main Road, DHARMAPURI - 635701',
-    phones: ['84898 47578', '63816 65877'],
+    phones: ['8072411032', '63816 65877'],
     mapUrl: 'https://maps.app.goo.gl/A99Hm6Uisnqna1ux8?g_st=aw',
   },
   {
@@ -173,7 +173,7 @@ export default function Contact() {
             {[
               { day: 'Branch 1', time: 'Krishnagiri to Dharmapuri Main Road, DHARMAPURI - 635701' },
               { day: 'Branch 2', time: 'No.30, Panakal Street, KAVERIPATTINAM - 635112' },
-              { day: 'Dharmapuri', time: '84898 47578 / 63816 65877' },
+              { day: 'Dharmapuri', time: '8072411032 / 63816 65877' },
               { day: 'Kaveripattinam', time: '96260 33182 / 77087 92435' },
               { day: 'Email', time: 'thecakebite1627@gmail.com' },
             ].map(({ day, time }) => (

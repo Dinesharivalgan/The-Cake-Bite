@@ -20,8 +20,8 @@ const footerLinks = {
   Contact: [
     { label: 'WhatsApp Us',                    href: 'https://wa.me/916381665877' },
     { label: 'Instagram',                      href: 'https://www.instagram.com/the_cake_bite_loveatfirstbite/' },
-    { label: 'thecakebite2716@gmail.com',      href: 'mailto:thecakebite2716@gmail.com' },
-    { label: 'Dharmapuri — 84898 47578',       href: 'tel:+916381665877' },
+    { label: 'thecakebite1627@gmail.com',      href: 'mailto:thecakebite1627@gmail.com' },
+    { label: 'Dharmapuri —8072411032',       href: 'tel:+916381665877' },
     { label: 'Kaveripattinam — 96260 33182',   href: 'tel:+919626033182' },
   ],
 }
@@ -29,7 +29,7 @@ const footerLinks = {
 const socialLinks = [
   { icon: '📸', href: 'https://www.instagram.com/the_cake_bite_loveatfirstbite/', label: 'Instagram' },
   { icon: '💬', href: 'https://wa.me/916381665877',                               label: 'WhatsApp'  },
-  { icon: '✉️', href: 'mailto:thecakebite2716@gmail.com',                         label: 'Email'     },
+  { icon: '✉️', href: 'mailto:thecakebite1627@gmail.com',                         label: 'Email'     },
   { icon: '📍', href: 'https://maps.app.goo.gl/A99Hm6Uisnqna1ux8?g_st=aw',      label: 'Location'  },
 ]
 
