@@ -1,43 +1,119 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
+    <!-- ── Primary SEO Meta Tags ── -->
+    <title>The Cake Bite — Best Cake Shop in Dharmapuri & Kaveripattinam | Order Online</title>
+    <meta name="description" content="The Cake Bite is the best cake shop in Dharmapuri and Kaveripattinam. Order fresh custom cakes, brownies, birthday cakes, wedding cakes online. Free delivery within 4-5 km. WhatsApp: +91 84898 47578" />
+    <meta name="keywords" content="cake shop Dharmapuri, cake shop Kaveripattinam, best cake shop Dharmapuri, birthday cake Dharmapuri, wedding cake Kaveripattinam, custom cake Dharmapuri, brownie shop Dharmapuri, order cake online Dharmapuri, The Cake Bite, cake delivery Dharmapuri, cake delivery Kaveripattinam, bakery Dharmapuri" />
+    <meta name="author" content="The Cake Bite" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#d18b47" />
+
+    <!-- ── Canonical URL ── -->
+    <link rel="canonical" href="https://www.thecakebite.in/" />
+
+    <!-- ── Open Graph / Facebook ── -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.thecakebite.in/" />
+    <meta property="og:title" content="The Cake Bite — Best Cake Shop in Dharmapuri & Kaveripattinam" />
+    <meta property="og:description" content="Premium artisan cakes, brownies & custom cakes in Dharmapuri and Kaveripattinam. Order now on WhatsApp: +91 84898 47578. Free delivery within 4-5 km." />
+    <meta property="og:image" content="/og-image.jpg" />
+    <meta property="og:image:alt" content="The Cake Bite — Premium cake shop in Dharmapuri" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:site_name" content="The Cake Bite" />
+
+    <!-- ── Twitter Card ── -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="The Cake Bite — Best Cake Shop in Dharmapuri & Kaveripattinam" />
+    <meta name="twitter:description" content="Premium artisan cakes & brownies. Order online via WhatsApp. Free delivery in Dharmapuri & Kaveripattinam." />
+    <meta name="twitter:image" content="/og-image.jpg" />
+
+    <!-- ── Geo Tags (Local SEO) ── -->
+    <meta name="geo.region" content="IN-TN" />
+    <meta name="geo.placename" content="Dharmapuri, Tamil Nadu, India" />
+    <meta name="geo.position" content="12.1278;78.1580" />
+    <meta name="ICBM" content="12.1278, 78.1580" />
+
+    <!-- ── Favicon ── -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+
+    <!-- ── Structured Data (JSON-LD) — Local Business SEO ── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Bakery",
+      "name": "The Cake Bite",
+      "alternateName": "The Cake Bite Love At First Bite",
+      "url": "https://www.thecakebite.in",
+      "logo": "https://www.thecakebite.in/logo.png",
+      "image": "https://www.thecakebite.in/og-image.jpg",
+      "description": "Premium artisan cake shop in Dharmapuri and Kaveripattinam, Tamil Nadu. Specialising in custom birthday cakes, wedding cakes, brownies, and celebration cakes.",
+      "telephone": "+918489847578",
+      "email": "thecakebite2716@gmail.com",
+      "priceRange": "₹₹",
+      "servesCuisine": ["Cakes", "Brownies", "Bakery"],
+      "openingHours": "Mo-Su 09:00-21:00",
+      "sameAs": [
+        "https://www.instagram.com/the_cake_bite_loveatfirstbite/"
+      ],
+      "location": [
+        {
+          "@type": "Place",
+          "name": "The Cake Bite — Dharmapuri Branch",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Krishnagiri to Dharmapuri Main Road",
+            "addressLocality": "Dharmapuri",
+            "addressRegion": "Tamil Nadu",
+            "postalCode": "635701",
+            "addressCountry": "IN"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "12.1278",
+            "longitude": "78.1580"
+          },
+          "hasMap": "https://maps.app.goo.gl/A99Hm6Uisnqna1ux8"
+        },
+        {
+          "@type": "Place",
+          "name": "The Cake Bite — Kaveripattinam Branch",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "No.30, Panakal Street",
+            "addressLocality": "Kaveripattinam",
+            "addressRegion": "Tamil Nadu",
+            "postalCode": "635112",
+            "addressCountry": "IN"
+          },
+          "hasMap": "https://maps.app.goo.gl/ZSVceK5oXSANrZ5U7"
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Cake Menu",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Birthday Cakes", "description": "Custom birthday cakes from ½ kg starting at ₹200" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Wedding Cakes", "description": "Premium multi-tier wedding cakes" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Brownies", "description": "Classic and loaded brownies from ₹80" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Custom Cakes", "description": "Fully custom design cakes for any occasion" } }
+        ]
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "1000",
+        "bestRating": "5"
+      }
+    }
+    </script>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
