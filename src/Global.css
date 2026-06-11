@@ -243,7 +243,7 @@ body::before {
   position:relative;
   width:100%;
   max-width:480px;
-  margin-top:200px; /* image keela move aagum */
+  margin-top:80px;
   animation:floatCake 6s ease-in-out infinite;
 }
 
@@ -862,6 +862,7 @@ section { padding:100px 52px; }
   font-size:.95rem; color:var(--text-muted); text-decoration:none; transition:var(--transition);
 }
 .social-link:hover { background:rgba(201,150,90,.14); border-color:var(--gold); color:var(--gold-bright); transform:translateY(-3px); }
+.social-link-img { width:18px; height:18px; object-fit:contain; display:block; }
 
 .footer-col-title { font-family:var(--font-body); font-size:.65rem; font-weight:600; letter-spacing:.22em; text-transform:uppercase; color: #1b082b; margin-bottom:18px; }
 .footer-col ul { display:flex; flex-direction:column; gap:9px; }
@@ -1487,11 +1488,21 @@ section { padding:100px 52px; }
 }
 
 .fullmenu-table-header.offer-header {
-  background: linear-gradient(135deg, rgba(204, 0, 0, 0.04), rgba(43, 20, 8, 0.02));
+  background: #fffaf6;
+  position: relative;
+  top: auto;
+  z-index: auto;
+}
+
+.fullmenu-table-wrap:has(.offer-header) .fullmenu-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 4;
 }
 
 .fullmenu-table-offer-pill {
-  display: inline-flex;
+  display: flex;
+  width: fit-content;
   align-items: center;
   gap: 6px;
   background: #cc0000;
@@ -1501,7 +1512,7 @@ section { padding:100px 52px; }
   font-weight: 900;
   padding: 5px 14px;
   border-radius: 20px;
-  margin-bottom: 8px;
+  margin: 0 0 8px;
   letter-spacing: 0.03em;
 }
 
@@ -2156,6 +2167,21 @@ section { padding:100px 52px; }
   border-radius: 12px;
   border: 1px solid rgba(209,139,71,.15);
 }
+.brownie-card-img-wrap {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(209,139,71,.15);
+  background: rgba(209,139,71,.08);
+}
+.brownie-card-real-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 .brownie-card-info {
   flex: 1;
   min-width: 0;
@@ -2562,6 +2588,14 @@ section { padding:100px 52px; }
 .about-loc-link:hover::before { transform: scaleY(1); }
 .about-loc-icon {
   font-size: 1.3rem;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+.loc-icon-img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
   flex-shrink: 0;
 }
 .about-loc-name {
@@ -3007,6 +3041,7 @@ section { padding:100px 52px; }
 }
 .branch-map-btn:hover { background: rgba(209,139,71,.2); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(209,139,71,.2); }
 .branch-map-icon { font-size: 1.6rem; line-height: 1; }
+.branch-map-icon-img { width: 22px; height: 22px; object-fit: contain; }
 .branch-map-btn span:last-child { font-family: var(--font-body); font-size: .62rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #8b3a10; }
 
 /* ── Cake badge — move to not cover cake image ── */
@@ -3059,6 +3094,10 @@ section { padding:100px 52px; }
   .floating-wa { bottom: 20px; right: 16px; padding: 12px 16px 12px 14px; font-size: .72rem; }
   .floating-wa-label { display: none; }
   .floating-wa { border-radius: 50%; width: 52px; height: 52px; padding: 0; justify-content: center; }
+
+  .brownie-card { flex-wrap: wrap; gap: 10px 14px; padding: 14px 16px; }
+  .brownie-card-info { flex-basis: calc(100% - 60px); }
+  .brownie-card-order { margin-left: auto; }
 }
 
 /* ── Reviews Section ── */
@@ -3190,8 +3229,10 @@ section { padding:100px 52px; }
 .footer-addr-link {
   font-family: var(--font-body); font-size: .73rem; color: brown;
   text-decoration: none; transition: color .2s;
+  display: flex; align-items: center; gap: 8px;
 }
 .footer-addr-link:hover { color: rgb(41, 18, 56); }
+.footer-icon-img { width: 14px; height: 14px; object-fit: contain; flex-shrink: 0; }
 
 .footer-made strong { color: var(--gold-bright); font-weight: 700; }
 

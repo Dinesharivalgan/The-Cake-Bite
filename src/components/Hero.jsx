@@ -1,5 +1,5 @@
 // components/Hero.jsx
-import { useEffect} from 'react'
+import { useEffect } from 'react'
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { FiShoppingBag, FiChevronDown, FiStar, FiTruck, FiAward } from 'react-icons/fi'
 import heroCake from '../assets/hero-main.jpg'
@@ -9,9 +9,9 @@ export default function Hero() {
   const mouseY = useMotionValue(0)
   const smoothX = useSpring(mouseX, { stiffness: 50, damping: 18 })
   const smoothY = useSpring(mouseY, { stiffness: 50, damping: 18 })
-  const imgY  = useTransform(smoothY, [-0.5, 0.5], [-15, 15])
-  const imgX  = useTransform(smoothX, [-0.5, 0.5], [-10, 10])
-  const txtY  = useTransform(smoothY, [-0.5, 0.5], [8, -8])
+  const imgY  = useTransform(smoothY, [-0.5, 0.5], [-10, 10])
+  const imgX  = useTransform(smoothX, [-0.5, 0.5], [-7, 7])
+  const txtY  = useTransform(smoothY, [-0.5, 0.5], [5, -5])
 
   useEffect(() => {
     const move = (e) => {
@@ -28,7 +28,7 @@ export default function Hero() {
   }
 
   return (
-    <section id="home" className="hero">
+    <section id="home" className="hero hero--compact">
       <div className="hero-bg-overlay" />
 
       <div style={{ position:'absolute', inset:0, zIndex:0, pointerEvents:'none' }}>
@@ -37,9 +37,9 @@ export default function Hero() {
       </div>
 
       {[
-        { top:'18%', left:'6%',  size:6, delay:0 },
-        { top:'65%', left:'9%',  size:4, delay:1.2 },
-        { top:'30%', right:'4%', size:5, delay:0.6 },
+        { top:'18%', left:'6%',  size:5, delay:0 },
+        { top:'65%', left:'9%',  size:3, delay:1.2 },
+        { top:'30%', right:'4%', size:4, delay:0.6 },
         { top:'75%', right:'7%', size:3, delay:1.8 },
       ].map((s, i) => (
         <motion.div
@@ -51,28 +51,30 @@ export default function Hero() {
             background:'radial-gradient(circle, var(--gold-bright), var(--gold))',
             boxShadow:`0 0 ${s.size*3}px var(--gold)`,
           }}
-          animate={{ opacity:[0.2,1,0.2], scale:[1,1.8,1] }}
-          transition={{ duration:3+i*0.5, repeat:Infinity, delay:s.delay }}
+          animate={{ opacity:[0.2,0.8,0.2], scale:[1,1.6,1] }}
+          transition={{ duration:4+i*0.5, repeat:Infinity, delay:s.delay, ease:'easeInOut' }}
         />
       ))}
 
       <div className="hero-inner">
+        {/* LEFT */}
         <motion.div className="hero-left" style={{ y: txtY }}>
 
           <motion.div
             className="hero-eyebrow"
-            initial={{ opacity:0, y:24 }}
+            initial={{ opacity:0, y:20 }}
             animate={{ opacity:1, y:0 }}
-            transition={{ duration:0.8, delay:0.2 }}
+            transition={{ duration:0.7, delay:0.2 }}
           >
             100% Icing Cakes · Fresh &amp; Hygienic
           </motion.div>
 
+          {/* Title — subtle fade+slide, no distracting effects */}
           <motion.h1
             className="hero-title"
-            initial={{ opacity:0, y:50 }}
+            initial={{ opacity:0, y:36 }}
             animate={{ opacity:1, y:0 }}
-            transition={{ duration:1, delay:0.35, ease:[0.25,0.46,0.45,0.94] }}
+            transition={{ duration:0.85, delay:0.32, ease:[0.25,0.46,0.45,0.94] }}
           >
             Freshly Baked
             <em>Happiness</em>
@@ -80,18 +82,20 @@ export default function Hero() {
 
           <motion.p
             className="hero-tagline"
-            initial={{ opacity:0, y:28 }}
+            initial={{ opacity:0, y:22 }}
             animate={{ opacity:1, y:0 }}
-            transition={{ duration:0.85, delay:0.52 }}
+            transition={{ duration:0.75, delay:0.46 }}
           >
-            With 1 kg cakes starting at just ₹350 — 100% fresh cream goodness without breaking the bank. Handcrafted in Dharmapuri &amp; Kaveripattinam.
+            With 1 kg cakes starting at just ₹350 — 100% fresh cream goodness without breaking the bank.
+            Handcrafted in Dharmapuri &amp; Kaveripattinam.
           </motion.p>
 
+          {/* Quick info pills */}
           <motion.div
             className="hero-quick-pills"
-            initial={{ opacity:0, y:20 }}
+            initial={{ opacity:0, y:16 }}
             animate={{ opacity:1, y:0 }}
-            transition={{ duration:0.8, delay:0.62 }}
+            transition={{ duration:0.7, delay:0.58 }}
           >
             <span className="hero-pill">⏱ Standard: 20–30 mins</span>
             <span className="hero-pill hero-pill-gold">🎨 Custom: 1–2 hrs</span>
@@ -100,13 +104,13 @@ export default function Hero() {
 
           <motion.div
             className="hero-cta"
-            initial={{ opacity:0, y:26 }}
+            initial={{ opacity:0, y:20 }}
             animate={{ opacity:1, y:0 }}
-            transition={{ duration:0.8, delay:0.74 }}
+            transition={{ duration:0.7, delay:0.68 }}
           >
             <motion.button
               className="btn-primary"
-              whileHover={{ scale:1.04, y:-3 }}
+              whileHover={{ scale:1.04, y:-2 }}
               whileTap={{ scale:0.97 }}
               onClick={() => scrollTo('#contact')}
             >
@@ -114,7 +118,7 @@ export default function Hero() {
             </motion.button>
             <motion.button
               className="btn-secondary"
-              whileHover={{ scale:1.04, y:-3 }}
+              whileHover={{ scale:1.04, y:-2 }}
               whileTap={{ scale:0.97 }}
               onClick={() => scrollTo('#cakes')}
             >
@@ -126,12 +130,12 @@ export default function Hero() {
             className="hero-trust"
             initial={{ opacity:0 }}
             animate={{ opacity:1 }}
-            transition={{ delay:1, duration:0.8 }}
+            transition={{ delay:0.9, duration:0.7 }}
           >
             {[
-              { icon:<FiStar size={16}/>,  num:'4.9★', lbl:'Star Rating' },
-              { icon:<FiAward size={16}/>, num:'1000+', lbl:'Happy Customers' },
-              { icon:<FiTruck size={16}/>, num:'FREE',  lbl:'5 km Delivery' },
+              { icon:<FiStar size={15}/>,  num:'4.9★', lbl:'Star Rating' },
+              { icon:<FiAward size={15}/>, num:'1000+', lbl:'Happy Customers' },
+              { icon:<FiTruck size={15}/>, num:'FREE',  lbl:'5 km Delivery' },
             ].map(({ icon, num, lbl }) => (
               <div key={lbl} className="hero-trust-item">
                 <span style={{ color:'var(--gold)' }}>{icon}</span>
@@ -144,33 +148,34 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
+        {/* RIGHT */}
         <div className="hero-right">
           <motion.div
             className="hero-cake-frame"
             style={{ x: imgX, y: imgY }}
-            initial={{ opacity:0, scale:0.88, x:60 }}
+            initial={{ opacity:0, scale:0.9, x:50 }}
             animate={{ opacity:1, scale:1, x:0 }}
-            transition={{ duration:1.1, delay:0.4, ease:[0.25,0.46,0.45,0.94] }}
+            transition={{ duration:1, delay:0.36, ease:[0.25,0.46,0.45,0.94] }}
           >
             <img
               src={heroCake}
-              alt="Fresh cream signature cake The Cake Bite Dharmapuri"
+              alt="Fresh cream signature cake — The Cake Bite Dharmapuri"
               className="hero-cake-img"
             />
             <motion.div
               className="hero-badge"
-              initial={{ opacity:0, x:-30 }}
+              initial={{ opacity:0, x:-24 }}
               animate={{ opacity:1, x:0 }}
-              transition={{ delay:1, duration:0.7 }}
+              transition={{ delay:0.9, duration:0.6 }}
             >
-              <span className="hero-badge-val">2024</span>
+              <span className="hero-badge-val">2025</span>
               <span className="hero-badge-lbl">Est. Since</span>
             </motion.div>
             <motion.div
               className="hero-badge-2"
-              initial={{ opacity:0, x:30 }}
+              initial={{ opacity:0, x:24 }}
               animate={{ opacity:1, x:0 }}
-              transition={{ delay:1.15, duration:0.7 }}
+              transition={{ delay:1.0, duration:0.6 }}
             />
           </motion.div>
         </div>
@@ -180,7 +185,7 @@ export default function Hero() {
         className="hero-scroll-hint"
         initial={{ opacity:0 }}
         animate={{ opacity:1 }}
-        transition={{ delay:1.5, duration:1 }}
+        transition={{ delay:1.3, duration:0.8 }}
         onClick={() => scrollTo('#cakes')}
         style={{ cursor:'pointer' }}
       >

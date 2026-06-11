@@ -1,6 +1,7 @@
 // components/Brownies.jsx
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import brownieImg from '../assets/browinee.jpg'
 
 const CLASSIC = [
   { name: 'Dark Traffle Brownie',   price: 80 },
@@ -21,11 +22,9 @@ const LOADED = [
   { name: 'Mutrella Loaded Brownie',      price: 150 },
 ]
 
-function BrownieCard({ item, idx, category }) {
-  const whatsappMsg = encodeURIComponent(
-    `Hi! I'd like to order a ${item.name} (₹${item.price}) from The Cake Bite 🍫`
-  )
+const WA = (msg) => `https://wa.me/916381665877?text=${encodeURIComponent(msg)}`
 
+function BrownieCard({ item, idx, category }) {
   return (
     <motion.div
       className={`brownie-card ${category}`}
@@ -35,15 +34,22 @@ function BrownieCard({ item, idx, category }) {
       transition={{ duration: 0.55, delay: idx * 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
       whileHover={{ y: -6, scale: 1.02 }}
     >
-      <div className="brownie-card-emoji">
-        {category === 'loaded' ? '🔥' : '🍫'}
+      {/* Actual brownie image replacing emoji */}
+      <div className="brownie-card-img-wrap">
+        <img
+          src={brownieImg}
+          alt="Brownie"
+          className="brownie-card-real-img"
+        />
       </div>
+
       <div className="brownie-card-info">
         <div className="brownie-card-name">{item.name}</div>
         <div className="brownie-card-price">₹{item.price}</div>
       </div>
+
       <a
-        href={`https://wa.me/918072411032?text=${whatsappMsg}`}
+        href={WA(`Hi! I'd like to order a ${item.name} (₹${item.price}) from The Cake Bite 🍫`)}
         target="_blank"
         rel="noopener noreferrer"
         className="brownie-card-order"
@@ -57,18 +63,12 @@ function BrownieCard({ item, idx, category }) {
 export default function Brownies() {
   const [tab, setTab] = useState('classic')
 
-  const whatsappAll = encodeURIComponent(
-    "Hi! I'd like to order brownies from The Cake Bite 🍫 Please share the brownie menu."
-  )
-
   return (
     <section id="brownies-section" className="brownies-section">
-      {/* Background decoration */}
       <div className="brownies-bg-orb" />
       <div className="brownies-bg-orb-2" />
 
       <div className="brownies-inner">
-        {/* Header */}
         <div className="brownies-header">
           <motion.div
             className="section-eyebrow"
@@ -100,7 +100,6 @@ export default function Brownies() {
             Rich, fudgy brownies in classic and loaded styles — click any to order instantly via WhatsApp.
           </motion.p>
 
-          {/* Tab switcher */}
           <motion.div
             className="brownie-tabs"
             initial={{ opacity: 0, y: 14 }}
@@ -108,28 +107,18 @@ export default function Brownies() {
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
           >
-            <button
-              className={`brownie-tab${tab === 'classic' ? ' active' : ''}`}
-              onClick={() => setTab('classic')}
-            >
+            <button className={`brownie-tab${tab === 'classic' ? ' active' : ''}`} onClick={() => setTab('classic')}>
               🎖️ Classic Brownies
             </button>
-            <button
-              className={`brownie-tab${tab === 'loaded' ? ' active' : ''}`}
-              onClick={() => setTab('loaded')}
-            >
+            <button className={`brownie-tab${tab === 'loaded' ? ' active' : ''}`} onClick={() => setTab('loaded')}>
               🔥 Loaded Brownies
             </button>
-            <button
-              className={`brownie-tab${tab === 'all' ? ' active' : ''}`}
-              onClick={() => setTab('all')}
-            >
+            <button className={`brownie-tab${tab === 'all' ? ' active' : ''}`} onClick={() => setTab('all')}>
               🍫 View All
             </button>
           </motion.div>
         </div>
 
-        {/* Cards grid */}
         <AnimatePresence mode="wait">
           {(tab === 'classic' || tab === 'all') && (
             <motion.div
@@ -139,9 +128,7 @@ export default function Brownies() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
             >
-              {tab === 'all' && (
-                <div className="brownie-section-label">🎖️ Classic Brownies</div>
-              )}
+              {tab === 'all' && <div className="brownie-section-label">🎖️ Classic Brownies</div>}
               <div className="brownie-grid">
                 {CLASSIC.map((item, i) => (
                   <BrownieCard key={item.name} item={item} idx={i} category="classic" />
@@ -158,9 +145,7 @@ export default function Brownies() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3, delay: tab === 'all' ? 0.1 : 0 }}
             >
-              {tab === 'all' && (
-                <div className="brownie-section-label" style={{ marginTop: 40 }}>🔥 Loaded Brownies</div>
-              )}
+              {tab === 'all' && <div className="brownie-section-label" style={{ marginTop: 40 }}>🔥 Loaded Brownies</div>}
               <div className="brownie-grid">
                 {LOADED.map((item, i) => (
                   <BrownieCard key={item.name} item={item} idx={i} category="loaded" />
@@ -170,7 +155,6 @@ export default function Brownies() {
           )}
         </AnimatePresence>
 
-        {/* WhatsApp CTA */}
         <motion.div
           style={{ textAlign: 'center', marginTop: 52 }}
           initial={{ opacity: 0, y: 24 }}
@@ -179,7 +163,7 @@ export default function Brownies() {
           transition={{ duration: 0.6, delay: 0.3 }}
         >
           <motion.a
-            href={`https://wa.me/916381665877?text=${whatsappAll}`}
+            href={WA("Hi! I'd like to order brownies from The Cake Bite 🍫 Please share the brownie menu.")}
             target="_blank"
             rel="noopener noreferrer"
             className="whatsapp-cta"

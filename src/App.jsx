@@ -1,5 +1,6 @@
 // App.jsx
 import { useEffect, useRef } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './Global.css'
 import Navbar   from './components/Navbar'
 import Hero     from './components/Hero'
@@ -58,7 +59,7 @@ function CustomCursor() {
 }
 
 /* ── Floating WhatsApp Button ── */
-const WA_URL = `https://wa.me/918489847578?text=${encodeURIComponent("Hi! I'd like to order a cake from The Cake Bite 🎂")}`
+const WA_URL = `https://wa.me/916381665877?text=${encodeURIComponent("Hi! I'd like to order a cake from The Cake Bite 🎂")}`
 
 function FloatingWhatsApp() {
   return (
@@ -78,21 +79,40 @@ function FloatingWhatsApp() {
   )
 }
 
-export default function App() {
+/* ── Home Page ── */
+function HomePage() {
   return (
     <>
-      <CustomCursor />
-      <FloatingWhatsApp />
-      <Navbar   />
       <Hero     />
       <Cakes    />
       <Brownies />
       <About    />
-      <Gallery  />
       <Reviews  />
       <FAQ      />
       <Contact  />
-      <Footer   />
     </>
+  )
+}
+
+/* ── Gallery Page ── */
+function GalleryPage() {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+  return <Gallery />
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <CustomCursor />
+      <FloatingWhatsApp />
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/gallery" element={<GalleryPage />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
   )
 }

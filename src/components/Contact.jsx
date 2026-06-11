@@ -1,5 +1,6 @@
 // components/Contact.jsx
 import { motion } from 'framer-motion'
+import location from '../assets/location.png'
 
 const contactCards = [
   {
@@ -154,7 +155,7 @@ export default function Contact() {
                   className="branch-map-btn"
                   aria-label={`Open ${branch.name} on Google Maps`}
                 >
-                  <span className="branch-map-icon">📍</span>
+                  <img src={location} alt="" className="branch-map-icon-img" />
                   <span>Get Directions</span>
                 </a>
               </div>

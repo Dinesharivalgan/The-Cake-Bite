@@ -1,6 +1,7 @@
 // components/Navbar.jsx
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { FiShoppingBag, FiMenu, FiX, FiChevronDown } from 'react-icons/fi'
 import logo from '../assets/logo.png'
 
@@ -8,7 +9,7 @@ const NAV_LINKS = [
   { label: 'Home',    href: '#home' },
   { label: 'Cakes',  href: '#cakes' },
   { label: 'About',  href: '#about' },
-  { label: 'Gallery',href: '#gallery' },
+  { label: 'Gallery',href: '/gallery', route: true },
   { label: 'Contact',href: '#contact' },
 ]
 
@@ -31,10 +32,9 @@ const LOADED_BROWNIES = [
   { name: 'Mutrella Loaded Brownie',      price: '₹150' },
 ]
 
-function BrownieDropdown({ onClose }) {
-  const whatsappMsg = (name, price) =>
-    encodeURIComponent(`Hi! I'd like to order a ${name} (${price}) from The Cake Bite 🍫`)
+const WA = (msg) => `https://wa.me/916381665877?text=${encodeURIComponent(msg)}`
 
+function BrownieDropdown({ onClose }) {
   return (
     <motion.div
       className="brownie-dropdown"
@@ -43,23 +43,17 @@ function BrownieDropdown({ onClose }) {
       exit={{ opacity: 0, y: -10, scale: 0.97 }}
       transition={{ duration: 0.28, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
-      {/* Glow accent */}
       <div className="brownie-dropdown-glow" />
-
-      <div className="brownie-dropdown-header">
-        🍫 Brownie Menu
-      </div>
+      <div className="brownie-dropdown-header">🍫 Brownie Menu</div>
 
       <div className="brownie-dropdown-cols">
-        {/* Classic */}
         <div className="brownie-col">
           <div className="brownie-col-title">🎖️ Classic Brownies</div>
           {CLASSIC_BROWNIES.map((b) => (
             <a
               key={b.name}
-              href={`https://wa.me/918072411032?text=${whatsappMsg(b.name, b.price)}`}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={WA(`Hi! I'd like to order a ${b.name} (${b.price}) from The Cake Bite 🍫`)}
+              target="_blank" rel="noopener noreferrer"
               className="brownie-row"
               onClick={onClose}
             >
@@ -68,16 +62,13 @@ function BrownieDropdown({ onClose }) {
             </a>
           ))}
         </div>
-
-        {/* Loaded */}
         <div className="brownie-col">
           <div className="brownie-col-title">🔥 Loaded Brownies</div>
           {LOADED_BROWNIES.map((b) => (
             <a
               key={b.name}
-              href={`https://wa.me/918072411032?text=${whatsappMsg(b.name, b.price)}`}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={WA(`Hi! I'd like to order a ${b.name} (${b.price}) from The Cake Bite 🍫`)}
+              target="_blank" rel="noopener noreferrer"
               className="brownie-row"
               onClick={onClose}
             >
@@ -90,9 +81,8 @@ function BrownieDropdown({ onClose }) {
 
       <div className="brownie-dropdown-footer">
         <a
-          href="https://wa.me/918072411032?text=Hi!%20I'd%20like%20to%20order%20brownies%20from%20The%20Cake%20Bite%20%F0%9F%8D«"
-          target="_blank"
-          rel="noopener noreferrer"
+          href={WA("Hi! I'd like to order brownies from The Cake Bite 🍫")}
+          target="_blank" rel="noopener noreferrer"
           className="brownie-order-all"
           onClick={onClose}
         >
@@ -112,6 +102,8 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen]       = useState(false)
   const [brownieOpen, setBrownieOpen] = useState(false)
   const brownieRef                    = useRef(null)
+  const navigate = useNavigate()
+  const location = useLocation()
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 40)
@@ -123,7 +115,6 @@ export default function Navbar() {
     document.body.style.overflow = menuOpen ? 'hidden' : ''
   }, [menuOpen])
 
-  // Close dropdown on outside click
   useEffect(() => {
     const handler = (e) => {
       if (brownieRef.current && !brownieRef.current.contains(e.target)) {
@@ -137,8 +128,25 @@ export default function Navbar() {
   const scrollTo = (href) => {
     setMenuOpen(false)
     setBrownieOpen(false)
+
+    if (location.pathname !== '/') {
+      navigate('/')
+      // wait for home page to mount before scrolling
+      setTimeout(() => {
+        const el = document.querySelector(href)
+        if (el) el.scrollIntoView({ behavior: 'smooth' })
+      }, 80)
+      return
+    }
+
     const el = document.querySelector(href)
     if (el) el.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  const goToGallery = () => {
+    setMenuOpen(false)
+    setBrownieOpen(false)
+    navigate('/gallery')
   }
 
   return (
@@ -149,7 +157,7 @@ export default function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.85, ease: [0.25, 0.46, 0.45, 0.94] }}
       >
-        {/* Logo */}
+        {/* Logo — premium font via CSS class */}
         <motion.a
           href="#home"
           className="navbar-logo-wrap"
@@ -158,7 +166,8 @@ export default function Navbar() {
         >
           <img src={logo} alt="The Cake Bite Logo" className="navbar-logo-img" />
           <div className="navbar-logo-text">
-            <span className="navbar-logo-name">The Cake Bite</span>
+            {/* Using .navbar-logo-name-premium for the updated font style */}
+            <span className="navbar-logo-name navbar-logo-name-premium">The Cake Bite</span>
           </div>
         </motion.a>
 
@@ -168,7 +177,7 @@ export default function Navbar() {
             <motion.a
               key={link.label}
               href={link.href}
-              onClick={(e) => { e.preventDefault(); scrollTo(link.href) }}
+              onClick={(e) => { e.preventDefault(); link.route ? goToGallery() : scrollTo(link.href) }}
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.15 + i * 0.07 }}
@@ -177,7 +186,6 @@ export default function Navbar() {
             </motion.a>
           ))}
 
-          {/* Brownies dropdown trigger */}
           <motion.div
             ref={brownieRef}
             className="brownie-nav-wrap"
@@ -199,11 +207,8 @@ export default function Navbar() {
                 }}
               />
             </button>
-
             <AnimatePresence>
-              {brownieOpen && (
-                <BrownieDropdown onClose={() => setBrownieOpen(false)} />
-              )}
+              {brownieOpen && <BrownieDropdown onClose={() => setBrownieOpen(false)} />}
             </AnimatePresence>
           </motion.div>
 
@@ -216,23 +221,20 @@ export default function Navbar() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.6 }}
           >
-            <FiShoppingBag size={14} />
-            Order Now
+            <FiShoppingBag size={14} /> Order Now
           </motion.button>
         </div>
 
-        {/* Hamburger */}
         <button
           className="hamburger"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
-          style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--gold)', display: 'flex', alignItems: 'center' }}
+          style={{ background:'none', border:'none', cursor:'pointer', color:'var(--gold)', display:'flex', alignItems:'center' }}
         >
           {menuOpen ? <FiX size={26} /> : <FiMenu size={26} />}
         </button>
       </motion.nav>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -249,30 +251,24 @@ export default function Navbar() {
                 initial={{ opacity: 0, x: -40 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.12 + i * 0.07 }}
-                onClick={(e) => { e.preventDefault(); scrollTo(link.href) }}
+                onClick={(e) => { e.preventDefault(); link.route ? goToGallery() : scrollTo(link.href) }}
               >
                 {link.label}
               </motion.a>
             ))}
-
-            {/* Mobile brownie link */}
             <motion.a
-              href="#brownies"
+              href="#brownies-section"
               initial={{ opacity: 0, x: -40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.47 }}
               onClick={(e) => {
                 e.preventDefault()
-                setMenuOpen(false)
-                setBrownieOpen(false)
-                const el = document.querySelector('#brownies-section')
-                if (el) el.scrollIntoView({ behavior: 'smooth' })
+                scrollTo('#brownies-section')
               }}
               style={{ color: 'var(--gold-bright)' }}
             >
               🍫 Brownies
             </motion.a>
-
             <motion.button
               className="btn-primary"
               style={{ marginTop: 12, gap: 8 }}

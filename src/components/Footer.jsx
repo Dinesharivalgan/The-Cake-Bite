@@ -1,5 +1,10 @@
 // components/Footer.jsx
 import { motion } from 'framer-motion'
+import { useNavigate, useLocation } from 'react-router-dom'
+import location from '../assets/location.png'
+import whatsapp from '../assets/WhatsApp.png'
+import gmail from '../assets/gmail.png'
+import instgram from '../assets/Instagram.png'
 
 const footerLinks = {
   Explore: [
@@ -7,7 +12,7 @@ const footerLinks = {
     { label: 'Our Cakes', href: '#cakes' },
     { label: 'Brownies',  href: '#brownies-section' },
     { label: 'About Us',  href: '#about' },
-    { label: 'Gallery',   href: '#gallery' },
+    { label: 'Gallery',   href: '/gallery', route: true },
     { label: 'Contact',   href: '#contact' },
   ],
   Order: [
@@ -21,21 +26,32 @@ const footerLinks = {
     { label: 'WhatsApp Us',                    href: 'https://wa.me/916381665877' },
     { label: 'Instagram',                      href: 'https://www.instagram.com/the_cake_bite_loveatfirstbite/' },
     { label: 'thecakebite1627@gmail.com',      href: 'mailto:thecakebite1627@gmail.com' },
-    { label: 'Dharmapuri —8072411032',       href: 'tel:+916381665877' },
-    { label: 'Kaveripattinam — 96260 33182',   href: 'tel:+919626033182' },
+    { label: 'Dharmapuri — 8072411032',        href: 'tel:+918072411032' },
+    { label: 'Kaveripattinam — 9626033182',    href: 'tel:+919626033182' },
   ],
 }
 
 const socialLinks = [
-  { icon: '📸', href: 'https://www.instagram.com/the_cake_bite_loveatfirstbite/', label: 'Instagram' },
-  { icon: '💬', href: 'https://wa.me/916381665877',                               label: 'WhatsApp'  },
-  { icon: '✉️', href: 'mailto:thecakebite1627@gmail.com',                         label: 'Email'     },
-  { icon: '📍', href: 'https://maps.app.goo.gl/A99Hm6Uisnqna1ux8?g_st=aw',      label: 'Location'  },
+  { icon: instgram, href: 'https://www.instagram.com/the_cake_bite_loveatfirstbite/', label: 'Instagram' },
+  { icon: whatsapp, href: 'https://wa.me/916381665877',                               label: 'WhatsApp'  },
+  { icon: gmail,    href: 'mailto:thecakebite1627@gmail.com',                         label: 'Email'     },
+  { icon: location, href: 'https://maps.app.goo.gl/A99Hm6Uisnqna1ux8?g_st=aw',        label: 'Location'  },
 ]
 
 export default function Footer() {
+  const navigate = useNavigate()
+  const location_ = useLocation()
+
   const handleNav = (href) => {
     if (href.startsWith('#')) {
+      if (location_.pathname !== '/') {
+        navigate('/')
+        setTimeout(() => {
+          const el = document.querySelector(href)
+          if (el) el.scrollIntoView({ behavior: 'smooth' })
+        }, 80)
+        return
+      }
       const el = document.querySelector(href)
       if (el) el.scrollIntoView({ behavior: 'smooth' })
     }
@@ -58,7 +74,7 @@ export default function Footer() {
 
           <p className="footer-desc">
             Premium artisan bakery proudly serving Dharmapuri &amp; Kaveripattinam
-            with freshly baked cakes, brownies, and custom celebration cakes since 2024.
+            with freshly baked cakes, brownies, and custom celebration cakes since 2025.
           </p>
 
           {/* Timings */}
@@ -80,7 +96,8 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="footer-addr-link"
             >
-              📍 Dharmapuri Main Road, 635701
+              <img src={location} alt="" className="footer-icon-img" />
+              Dharmapuri Main Road, 635701
             </a>
             <a
               href="https://maps.app.goo.gl/ZSVceK5oXSANrZ5U7?g_st=aw"
@@ -88,7 +105,8 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="footer-addr-link"
             >
-              📍 No.30 Panakal Street, Kaveripattinam
+              <img src={location} alt="" className="footer-icon-img" />
+              No.30 Panakal Street, Kaveripattinam
             </a>
           </div>
 
@@ -104,7 +122,7 @@ export default function Footer() {
                 whileHover={{ scale: 1.12, y: -3 }}
                 whileTap={{ scale: 0.94 }}
               >
-                {icon}
+                <img src={icon} alt={label} className="social-link-img" />
               </motion.a>
             ))}
           </div>
@@ -122,12 +140,13 @@ export default function Footer() {
           >
             <div className="footer-col-title">{title}</div>
             <ul>
-              {links.map(({ label, href }) => (
+              {links.map(({ label, href, route }) => (
                 <li key={label}>
                   <a
                     href={href}
                     onClick={(e) => {
-                      if (href.startsWith('#')) { e.preventDefault(); handleNav(href) }
+                      if (route) { e.preventDefault(); navigate('/gallery') }
+                      else if (href.startsWith('#')) { e.preventDefault(); handleNav(href) }
                     }}
                     target={href.startsWith('http') || href.startsWith('mailto') ? '_blank' : undefined}
                     rel={href.startsWith('http') || href.startsWith('mailto') ? 'noopener noreferrer' : undefined}
@@ -150,10 +169,10 @@ export default function Footer() {
         transition={{ delay: 0.4, duration: 0.7 }}
       >
         <div className="footer-copy">
-          © 2024 <span>The Cake Bite</span>. All rights reserved.
+          © 2025 <span>The Cake Bite</span>. All rights reserved.
         </div>
         <div className="footer-made">
-          Made with <span>♥</span> by <strong>Dinesh Solution</strong>
+          Made with <span>♥</span> by <strong>AD Shadow Solution</strong>
         </div>
       </motion.div>
     </motion.footer>
