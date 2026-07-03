@@ -116,6 +116,14 @@ function ContactPage() {
   return <Contact />
 }
 
+/* ── About Page ── */
+function AboutPage() {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+  return <About />
+}
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -127,6 +135,7 @@ export default function App() {
         <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/reviews" element={<ReviewsPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/about" element={<AboutPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>

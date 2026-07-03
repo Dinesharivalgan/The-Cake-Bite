@@ -15,7 +15,7 @@ const NAV_LINKS_MAIN = [
 const NAV_LINKS_SECONDARY = [
   { label: 'Reviews', href: '/reviews', route: true },
   { label: 'Contact', href: '/contact', route: true },
-  { label: 'About',   href: '#about' },
+  { label: 'About',   href: '/about', route: true },
 ]
 
 const CLASSIC_BROWNIES = [
