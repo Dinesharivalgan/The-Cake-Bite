@@ -51,7 +51,7 @@
 
 /* ── Reset ── */
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior:smooth; font-size:16px; }
+html { scroll-behavior:smooth; font-size:16px; overflow-x:hidden; }
 body {
   background:
     linear-gradient(
@@ -213,7 +213,8 @@ body::before {
   position: relative;
   display: flex;
   align-items: center;
-  
+  overflow-x: hidden;
+  max-width: 100%;
 
   background:
     radial-gradient(circle at top right,
@@ -3143,11 +3144,11 @@ section { padding:72px 52px; }
   .brownie-col:first-child { border-right: none; border-bottom: 1px solid rgba(209,139,71,.1); }
   .brownies-section { padding: 72px 28px; }
   .cakes-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
-  .hero-inner { flex-direction: column; text-align: center; gap: 40px; padding: 88px 28px 48px; }
-  .hero-left { max-width: 100%; }
+  .hero-inner { flex-direction: column; text-align: center; gap: 40px; padding: 88px 28px 48px; width: 100%; max-width: 100%; }
+  .hero-left { max-width: 100%; width: 100%; }
   .hero-title-row { justify-content: center; }
-  .hero-right { justify-content: center; }
-  .hero-cake-frame { max-width: 360px; margin-top: 0; }
+  .hero-right { justify-content: center; width: 100%; }
+  .hero-cake-frame { max-width: 360px !important; width: 100%; margin: 0 auto; }
   .branch-location-top { flex-direction: column; gap: 12px; }
   .branch-map-btn { align-self: flex-start; flex-direction: row; }
 }
@@ -3162,6 +3163,7 @@ section { padding:72px 52px; }
   .stats-grid { grid-template-columns: 1fr 1fr; }
   .footer-bottom { flex-direction: column; text-align: center; }
   .hero-cta { flex-direction: column; align-items: center; }
+  .hero-cake-frame { max-width: 300px !important; }
   .hero-scroll-hint { display: none; }
   .cursor, .cursor-follower { display: none; }
   body { cursor: auto; }
@@ -3297,6 +3299,10 @@ section { padding:72px 52px; }
   .brownie-card { flex-wrap: wrap; gap: 10px 14px; padding: 14px 16px; }
   .brownie-card-info { flex-basis: calc(100% - 60px); }
   .brownie-card-order { margin-left: auto; }
+
+  .hero-cake-frame { max-width: 250px !important; }
+  .hero-badge { left: 0; }
+  .hero-badge-2 { right: 0; }
 }
 
 /* ── Reviews Section ── */
