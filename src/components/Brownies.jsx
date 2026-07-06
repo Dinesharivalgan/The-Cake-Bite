@@ -101,6 +101,26 @@ export default function Brownies() {
           </motion.p>
 
           <motion.div
+            className="brownie-offer-card"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.25 }}
+          >
+            <span className="brownie-offer-badge">Offer</span>
+            <motion.span
+              className="brownie-offer-icon"
+              animate={{ scale: [1, 1.18, 1], rotate: [0, -8, 8, 0] }}
+              transition={{ duration: 1.8, repeat: Infinity, repeatDelay: 0.6 }}
+            >
+              🎉
+            </motion.span>
+            <span className="brownie-offer-text">
+              Order <strong>1kg</strong> Brownies &amp; Get <strong>¼kg FREE</strong>!
+            </span>
+          </motion.div>
+
+          <motion.div
             className="brownie-tabs"
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}

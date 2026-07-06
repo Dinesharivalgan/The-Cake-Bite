@@ -50,6 +50,9 @@ function BrownieDropdown({ onClose }) {
     >
       <div className="brownie-dropdown-glow" />
       <div className="brownie-dropdown-header">🍫 Brownie Menu</div>
+      <div className="brownie-dropdown-offer">
+        🎉 Order <strong>1kg</strong> Brownies &amp; Get <strong>¼kg FREE</strong>!
+      </div>
 
       <div className="brownie-dropdown-cols">
         <div className="brownie-col">
