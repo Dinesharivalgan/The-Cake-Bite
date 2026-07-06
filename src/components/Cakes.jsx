@@ -23,6 +23,37 @@ import chocoOreo          from '../assets/Choco Oreo.jpg'
 // import rasamalai          from '../assets/Rasamalai blast.jpg'
 // import whiteforest        from '../assets/white forest.jpg'
 
+/* ── Customized Cake gallery photos ── */
+import custom1  from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.03.46 AM.jpeg'
+import custom2  from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.03.51 AM.jpeg'
+import custom3  from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.09.57 AM.jpeg'
+import custom4  from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.10.00 AM.jpeg'
+import custom5  from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.10.01 AM.jpeg'
+import custom6  from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.10.02 AM (1).jpeg'
+import custom7  from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.10.02 AM (2).jpeg'
+import custom8  from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.10.02 AM.jpeg'
+import custom9  from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.10.03 AM (1).jpeg'
+import custom10 from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.10.03 AM (2).jpeg'
+import custom11 from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.10.03 AM.jpeg'
+import custom12 from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.10.04 AM.jpeg'
+import custom13 from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.11.05 AM.jpeg'
+import custom14 from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.11.06 AM (1).jpeg'
+import custom15 from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.11.06 AM.jpeg'
+import custom16 from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.11.07 AM (1).jpeg'
+import custom17 from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.11.07 AM (2).jpeg'
+import custom18 from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.11.07 AM.jpeg'
+import custom19 from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.11.08 AM (1).jpeg'
+import custom20 from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.11.08 AM.jpeg'
+import custom21 from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.11.09 AM (1).jpeg'
+import custom22 from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.11.09 AM (2).jpeg'
+import custom23 from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.11.09 AM.jpeg'
+
+const CUSTOM_CAKE_IMAGES = [
+  custom1, custom2, custom3, custom4, custom5, custom6, custom7, custom8,
+  custom9, custom10, custom11, custom12, custom13, custom14, custom15, custom16,
+  custom17, custom18, custom19, custom20, custom21, custom22, custom23,
+]
+
 /* ──────────────────────────────────────────
    CAKE CARDS DATA
 ────────────────────────────────────────── */
@@ -331,6 +362,119 @@ function CakeDetailModal({ cake, onClose }) {
 }
 
 /* ──────────────────────────────────────────
+   CUSTOMIZED CAKE MODAL
+────────────────────────────────────────── */
+function CustomCakeModal({ images, onClose }) {
+  const [preview, setPreview] = useState(null)
+
+  const waGeneral = encodeURIComponent(
+    "Hi! I'd like to order a Customized Cake from The Cake Bite 🎂 I saw your custom cake designs and would like a quote."
+  )
+
+  return (
+    <motion.div
+      className="menu-modal-overlay"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      onClick={onClose}
+    >
+      <motion.div
+        className="customcake-modal"
+        initial={{ opacity: 0, y: 60, scale: 0.93 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        exit={{ opacity: 0, y: 40, scale: 0.97 }}
+        transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="fullmenu-header">
+          <div className="fullmenu-title">🎂 Customized Cakes</div>
+          <button className="menu-modal-close" onClick={onClose}>✕</button>
+        </div>
+
+        <p className="customcake-intro">
+          Every custom cake is designed just for you — birthdays, weddings, anniversaries &amp; more.
+          Tap any design below, or WhatsApp us your own idea for a free quote.
+        </p>
+
+        <div className="customcake-grid">
+          {images.map((src, i) => (
+            <motion.div
+              key={i}
+              className="customcake-thumb"
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: Math.min(i * 0.03, 0.6) }}
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
+              onClick={() => setPreview({ src, i })}
+            >
+              <img src={src} alt={`Customized cake design ${i + 1}`} loading="lazy" />
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="fullmenu-footer">
+          <a
+            href={`https://wa.me/916381665877?text=${waGeneral}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="whatsapp-cta"
+            style={{ display: 'inline-flex' }}
+          >
+            <WhatsAppIcon size={18} />
+            Order a Customized Cake
+          </a>
+          <button className="btn-secondary" onClick={onClose}>Close</button>
+        </div>
+      </motion.div>
+
+      {/* Tap-to-preview lightbox for a single design */}
+      <AnimatePresence>
+        {preview && (
+          <motion.div
+            className="gallery-lightbox-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={(e) => { e.stopPropagation(); setPreview(null) }}
+          >
+            <motion.div
+              className="gallery-lightbox"
+              initial={{ scale: 0.85, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.88, opacity: 0 }}
+              transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button className="gallery-lightbox-close" onClick={() => setPreview(null)}>✕</button>
+              <img src={preview.src} alt={`Customized cake design ${preview.i + 1}`} className="customcake-lightbox-img" />
+              <div className="gallery-lightbox-info">
+                <span className="cake-card-category">Customized Cake</span>
+                <div className="cake-detail-name" style={{ fontSize: '1.1rem', marginTop: 6 }}>
+                  Design #{preview.i + 1}
+                </div>
+                <a
+                  href={`https://wa.me/916381665877?text=${encodeURIComponent(`Hi! I'd like to order a customized cake similar to Design #${preview.i + 1} from The Cake Bite 🎂`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="whatsapp-cta"
+                  style={{ display: 'inline-flex', marginTop: 16 }}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <WhatsAppIcon size={16} />
+                  Order This Design
+                </a>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  )
+}
+
+/* ──────────────────────────────────────────
    FULL MENU MODAL
 ────────────────────────────────────────── */
 function FullMenuModal({ onClose }) {
@@ -562,13 +706,14 @@ function FullMenuModal({ onClose }) {
 ────────────────────────────────────────── */
 export default function Cakes() {
   const sectionRef = useRef(null)
-  const [selectedCake, setSelectedCake] = useState(null)
-  const [showFullMenu, setShowFullMenu]  = useState(false)
+  const [selectedCake, setSelectedCake]   = useState(null)
+  const [showFullMenu, setShowFullMenu]   = useState(false)
+  const [showCustomCake, setShowCustomCake] = useState(false)
 
   return (
     <section id="cakes" className="cakes-section" ref={sectionRef}>
 
-      {/* Offer Strip */}
+      {/* Offer Strip — original Special Offer, unchanged */}
       <motion.div
         className="cakes-offer-strip"
         initial={{ opacity: 0, y: -20 }}
@@ -587,6 +732,27 @@ export default function Cakes() {
           onClick={() => setShowFullMenu(true)}
         >See Offer →</motion.button>
       </motion.div>
+
+      {/* Extra Card — Customized Cakes (new, separate from the offer above) */}
+      <motion.div
+        className="cakes-offer-strip cakes-offer-strip--custom"
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.08 }}
+      >
+        <span className="offer-strip-badge">🎂 CUSTOM ORDERS</span>
+        <span className="offer-strip-text">
+          <strong>Dreaming of a custom cake?</strong> — Birthdays, weddings &amp; anniversaries. Tell us your idea and we'll bake it to life!
+        </span>
+        <motion.button
+          className="offer-strip-btn"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.96 }}
+          onClick={() => setShowCustomCake(true)}
+        >See Designs →</motion.button>
+      </motion.div>
+
 
       {/* Section Header */}
       <div className="cakes-header">
@@ -645,6 +811,12 @@ export default function Cakes() {
       <AnimatePresence>
         {showFullMenu && (
           <FullMenuModal onClose={() => setShowFullMenu(false)} />
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {showCustomCake && (
+          <CustomCakeModal images={CUSTOM_CAKE_IMAGES} onClose={() => setShowCustomCake(false)} />
         )}
       </AnimatePresence>
     </section>
