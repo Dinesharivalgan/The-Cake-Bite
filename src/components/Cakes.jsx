@@ -25,33 +25,32 @@ import chocoOreo          from '../assets/Choco Oreo.jpg'
 
 /* ── Customized Cake gallery photos ── */
 import custom1  from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.03.46 AM.jpeg'
-import custom2  from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.03.51 AM.jpeg'
-import custom3  from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.09.57 AM.jpeg'
-import custom4  from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.10.00 AM.jpeg'
-import custom5  from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.10.01 AM.jpeg'
-import custom6  from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.10.02 AM (1).jpeg'
-import custom7  from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.10.02 AM (2).jpeg'
-import custom8  from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.10.02 AM.jpeg'
-import custom9  from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.10.03 AM (1).jpeg'
-import custom10 from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.10.03 AM (2).jpeg'
-import custom11 from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.10.03 AM.jpeg'
-import custom12 from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.10.04 AM.jpeg'
-import custom13 from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.11.05 AM.jpeg'
-import custom14 from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.11.06 AM (1).jpeg'
-import custom15 from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.11.06 AM.jpeg'
-import custom16 from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.11.07 AM (1).jpeg'
-import custom17 from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.11.07 AM (2).jpeg'
-import custom18 from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.11.07 AM.jpeg'
-import custom19 from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.11.08 AM (1).jpeg'
-import custom20 from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.11.08 AM.jpeg'
-import custom21 from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.11.09 AM (1).jpeg'
-import custom22 from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.11.09 AM (2).jpeg'
-import custom23 from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.11.09 AM.jpeg'
+import custom2  from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.10.00 AM.jpeg'
+import custom3  from '../assets/customized cakes/WhatsApp Image 2026-07-06 at 11.11.07 AM (2).jpeg'
+import custom4  from '../assets/customized cakes/WhatsApp_Image_2026-07-06_at_11.03.51_AM-removebg-preview.png'
+import custom5  from '../assets/customized cakes/WhatsApp_Image_2026-07-06_at_11.09.57_AM-removebg-preview.png'
+import custom6  from '../assets/customized cakes/WhatsApp_Image_2026-07-06_at_11.10.01_AM-removebg-preview.png'
+import custom7  from '../assets/customized cakes/WhatsApp_Image_2026-07-06_at_11.10.02_AM-removebg-preview.png'
+import custom8  from '../assets/customized cakes/WhatsApp_Image_2026-07-06_at_11.10.02_AM__1_-removebg-preview.png'
+import custom9  from '../assets/customized cakes/WhatsApp_Image_2026-07-06_at_11.10.02_AM__2_-removebg-preview.png'
+import custom10 from '../assets/customized cakes/WhatsApp_Image_2026-07-06_at_11.10.03_AM-removebg-preview.png'
+import custom11 from '../assets/customized cakes/WhatsApp_Image_2026-07-06_at_11.10.03_AM__1_-removebg-preview.png'
+import custom12 from '../assets/customized cakes/WhatsApp_Image_2026-07-06_at_11.10.03_AM__2_-removebg-preview.png'
+import custom13 from '../assets/customized cakes/WhatsApp_Image_2026-07-06_at_11.10.04_AM-removebg-preview.png'
+import custom14 from '../assets/customized cakes/WhatsApp_Image_2026-07-06_at_11.11.05_AM-removebg-preview.png'
+import custom15 from '../assets/customized cakes/WhatsApp_Image_2026-07-06_at_11.11.06_AM-removebg-preview.png'
+import custom16 from '../assets/customized cakes/WhatsApp_Image_2026-07-06_at_11.11.06_AM__1_-removebg-preview.png'
+import custom17 from '../assets/customized cakes/WhatsApp_Image_2026-07-06_at_11.11.07_AM-removebg-preview.png'
+import custom18 from '../assets/customized cakes/WhatsApp_Image_2026-07-06_at_11.11.07_AM__1_-removebg-preview.png'
+import custom19 from '../assets/customized cakes/WhatsApp_Image_2026-07-06_at_11.11.08_AM-removebg-preview.png'
+import custom20 from '../assets/customized cakes/WhatsApp_Image_2026-07-06_at_11.11.09_AM-removebg-preview.png'
+import custom21 from '../assets/customized cakes/WhatsApp_Image_2026-07-06_at_11.11.09_AM__1_-removebg-preview.png'
+import custom22 from '../assets/customized cakes/WhatsApp_Image_2026-07-06_at_11.11.09_AM__2_-removebg-preview.png'
 
 const CUSTOM_CAKE_IMAGES = [
   custom1, custom2, custom3, custom4, custom5, custom6, custom7, custom8,
   custom9, custom10, custom11, custom12, custom13, custom14, custom15, custom16,
-  custom17, custom18, custom19, custom20, custom21, custom22, custom23,
+  custom17, custom18, custom19, custom20, custom21, custom22,
 ]
 
 /* ──────────────────────────────────────────
@@ -718,6 +717,7 @@ export default function Cakes() {
         className="cakes-offer-strip"
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
+        whileHover={{ y: -8, scale: 1.015 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
@@ -738,6 +738,7 @@ export default function Cakes() {
         className="cakes-offer-strip cakes-offer-strip--custom"
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
+        whileHover={{ y: -8, scale: 1.015 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.08 }}
       >
@@ -751,6 +752,29 @@ export default function Cakes() {
           whileTap={{ scale: 0.96 }}
           onClick={() => setShowCustomCake(true)}
         >See Designs →</motion.button>
+      </motion.div>
+
+      {/* Extra Card — Photo Print Cake (shop's signature speciality) */}
+      <motion.div
+        className="cakes-offer-strip cakes-offer-strip--photo"
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        whileHover={{ y: -8, scale: 1.015 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.16 }}
+      >
+        <span className="offer-strip-badge">📸 SHOP SPECIAL</span>
+        <span className="offer-strip-text">
+          <strong>Photo Print Cake</strong> — Your favourite photo, printed edible on the cake! Our signature speciality.
+        </span>
+        <motion.a
+          href={`https://wa.me/916381665877?text=${encodeURIComponent("Hi! I'd like to order a Photo Print Cake from The Cake Bite 📸🎂")}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="offer-strip-btn"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.96 }}
+        >Order Now →</motion.a>
       </motion.div>
 
 

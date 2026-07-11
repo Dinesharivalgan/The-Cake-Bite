@@ -945,6 +945,14 @@ section { padding:72px 52px; }
   max-width: 900px;
   flex-wrap: wrap;
   box-shadow: 0 6px 28px rgba(179, 0, 0, 0.3);
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
+
+/* Floating lift on hover — shadow deepens as the card lifts (transform/scale
+   handled by framer-motion whileHover in Cakes.jsx) */
+.cakes-offer-strip:hover {
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.28);
 }
 
 /* Customized Cake teaser — distinct plum/rose colour so it reads
@@ -954,6 +962,15 @@ section { padding:72px 52px; }
   box-shadow: 0 6px 28px rgba(138, 37, 96, 0.35);
 }
 .cakes-offer-strip--custom .offer-strip-badge { color: #8a2560; }
+
+/* Photo Print Cake teaser — deep teal/emerald so it stands apart from the
+   red "special offer" and the plum "custom cake" cards (no gold, as requested) */
+.cakes-offer-strip--photo {
+  background: linear-gradient(135deg, #0d5c4f 0%, #1c8a74 50%, #0d5c4f 100%);
+  box-shadow: 0 6px 28px rgba(13, 92, 79, 0.35);
+}
+.cakes-offer-strip--photo .offer-strip-badge { color: #0d5c4f; }
+.offer-strip-btn { text-decoration: none; }
 
 .offer-strip-badge {
   background: #ffffff;
@@ -1812,6 +1829,9 @@ section { padding:72px 52px; }
   cursor: pointer;
   border: 1px solid #ebdcd3;
   box-shadow: 0 4px 14px rgba(0,0,0,.08);
+  /* Home-page background gradient behind the cutout cake photos,
+     since many of these images have a transparent background */
+  background: linear-gradient(180deg, #fffaf4 0%, #fff2e3 40%, #fce8d0 100%);
 }
 .customcake-thumb img {
   width: 100%;
@@ -1825,7 +1845,7 @@ section { padding:72px 52px; }
   max-height: 70vh;
   object-fit: contain;
   display: block;
-  background: #f6eee6;
+  background: linear-gradient(180deg, #fffaf4 0%, #fff2e3 40%, #fce8d0 100%);
 }
 @media (max-width: 640px) {
   .customcake-modal { width: 96vw; max-height: 92vh; border-radius: 16px; }
